@@ -1,11 +1,16 @@
 import { Card, CardActionArea, CardContent, CardMedia, Container, Grid, Typography } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 import { Colors } from '../../../utils/colors';
 import { Carregando } from '../../components/Carregando';
+import { Paginacao } from '../../components/Paginacao';
 import { useHomeController } from './HomeController';
-import { Paginacao } from './Paginacao';
+import { Paths } from '../../../routes/paths';
 
 export function Home() {
+  const navigate = useNavigate();
   const { characters, total, carregando, obterPaginado } = useHomeController();
+
+  const irPerfil = (id: number) => () => navigate(Paths.perfilAgente(id));
 
   if (carregando || !characters) {
     return (
@@ -20,14 +25,14 @@ export function Home() {
       <Grid spacing={2} container>
         {characters.map((character, index) => {
           const ultimos = index === 9 || index === 8;
-          const sm = ultimos ? 12 : 12;
-          const md = ultimos ? 6 : 6;
           const lg = ultimos ? 6 : 3;
+
           return (
-            <Grid key={character.name} sm={sm} md={md} lg={lg} item>
+            <Grid key={character.name} sm={12} md={6} lg={lg} item>
               <Card sx={{ backgroundColor: Colors.gray100, border: 'none', outline: 'none' }}>
                 <CardActionArea
-                  sx={{ display: 'flex', justifyContent: 'start', height: 150, p: '14px 10px 14px 10px' }}>
+                  sx={{ display: 'flex', justifyContent: 'start', height: 150, p: '14px 10px 14px 10px' }}
+                  onClick={irPerfil(character.id)}>
                   <CardMedia
                     component="img"
                     image={character.thumbnail.path + '.' + character.thumbnail.extension}

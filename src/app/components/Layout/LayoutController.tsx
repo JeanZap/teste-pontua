@@ -1,4 +1,4 @@
-import { mdiAccountOutline, mdiCheckboxOutline, mdiViewDashboardOutline } from '@mdi/js';
+import { mdiAccountOutline, mdiViewDashboardOutline } from '@mdi/js';
 import { useState } from 'react';
 import { Paths } from '../../../routes/paths';
 

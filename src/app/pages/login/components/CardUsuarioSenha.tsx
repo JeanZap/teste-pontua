@@ -2,10 +2,10 @@ import { mdiAt, mdiEyeOffOutline, mdiEyeOutline, mdiLoginVariant, mdiShieldKeyOu
 import Icon from '@mdi/react';
 import { Box, Button, Card, CardContent, CircularProgress, IconButton, TextField, Typography } from '@mui/material';
 import { ChangeEvent, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { LoginRequestDto } from '../../../../models/LoginRequestDto';
 import { Paths } from '../../../../routes/paths';
 import { Colors } from '../../../../utils/colors';
-import { Link } from 'react-router-dom';
 
 const inicial: LoginRequestDto = { usuario: '', senha: '' };
 
@@ -36,7 +36,7 @@ export function CardUsuarioSenha({ erro, carregando, login }: Props) {
   const toggleExibirSenha = () => setExibirSenha(!exibirSenha);
 
   return (
-    <Card sx={{ borderRadius: 4 }}>
+    <Card sx={{ borderRadius: 4, maxWidth: 480 }}>
       <CardContent sx={{ m: '2rem', mb: '4rem' }}>
         <Typography display="inline" color={Colors.blue800} fontSize={36}>
           <b>Bem-vindo</b>

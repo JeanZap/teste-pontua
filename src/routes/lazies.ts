@@ -12,3 +12,5 @@ export const SelecaoAgente = lazy(() =>
 
 export const Home = lazy(() => import('../app/pages/home').then(({ Home }) => ({ default: Home })));
 
+export const Perfil = lazy(() => import('../app/pages/perfil').then(({ Perfil }) => ({ default: Perfil })));
+

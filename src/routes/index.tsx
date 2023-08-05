@@ -2,7 +2,7 @@ import { Suspense } from 'react';
 import { Outlet, createBrowserRouter } from 'react-router-dom';
 import { Carregando } from '../app/components/Carregando';
 import { RotaAutenticada } from '../app/components/RotaAutenticada';
-import { EsquecimentoSenha, Home, Login, SelecaoAgente } from './lazies';
+import { EsquecimentoSenha, Home, Login, Perfil, SelecaoAgente } from './lazies';
 import { Paths } from './paths';
 
 export const router = createBrowserRouter([
@@ -20,7 +20,7 @@ export const router = createBrowserRouter([
         element: <RotaAutenticada />,
         children: [
           { path: Paths.home, element: <Home /> },
-          { path: Paths.perfilAgente(), element: <h1>Dashboard</h1> }
+          { path: Paths.perfilAgente(), element: <Perfil /> }
         ]
       },
       {

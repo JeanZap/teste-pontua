@@ -5,7 +5,7 @@ import { building, logoWhite } from '../../assets';
 
 export function BackgroundDMZ({ children }: PropsWithChildren) {
   const theme = useTheme();
-  const exibirPredio = useMediaQuery(theme.breakpoints.up('md'));
+  const exibirPredio = useMediaQuery(theme.breakpoints.up('lg'));
 
   return (
     <Box
@@ -23,14 +23,12 @@ export function BackgroundDMZ({ children }: PropsWithChildren) {
 
       <Grid container spacing={4} p={2} justifyContent="space-evenly" alignItems="center" minHeight="inherit">
         {exibirPredio && (
-          <Grid sm={0} md={6} item>
+          <Grid sm={6} item>
             <img src={building} alt={building} />
           </Grid>
         )}
 
-        <Grid sm={12} md={6} item>
-          {children}
-        </Grid>
+        <Grid item>{children}</Grid>
       </Grid>
     </Box>
   );

@@ -18,7 +18,7 @@ export function CardEmail({ carregando, erro, solicitarTrocaSenha }: Props) {
   const trocarSenha = () => solicitarTrocaSenha(email);
 
   return (
-    <Card sx={{ borderRadius: 4 }}>
+    <Card sx={{ borderRadius: 4, maxWidth: 480 }}>
       <CardContent sx={{ m: '2rem', mb: '4rem' }}>
         <Typography display="inline" color={Colors.blue800} fontSize={36}>
           <b>Recuperar senha</b>

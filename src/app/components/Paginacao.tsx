@@ -1,16 +1,7 @@
 import { mdiArrowLeft, mdiArrowRight } from '@mdi/js';
 import Icon from '@mdi/react';
 import { Button, Pagination, PaginationItem } from '@mui/material';
-import { styled } from '@mui/material/styles';
-import usePagination from '@mui/material/usePagination';
-import { Colors } from '../../../utils/colors';
-
-const List = styled('ul')({
-  listStyle: 'none',
-  padding: 0,
-  margin: 0,
-  display: 'flex'
-});
+import { Colors } from '../../utils/colors';
 
 interface Props {
   total?: number;
@@ -18,10 +9,6 @@ interface Props {
 }
 
 export function Paginacao({ total, buscarPagina }: Props) {
-  const { items } = usePagination({
-    count: Math.floor((total ?? 0) / 10)
-  });
-
   function MapearTipo(tipo: string) {
     switch (tipo) {
       case 'first':

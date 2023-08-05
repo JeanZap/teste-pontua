@@ -7,7 +7,7 @@ interface Props {
 
 export function CardEnviado({ irParaLogin }: Props) {
   return (
-    <Card sx={{ borderRadius: 4 }}>
+    <Card sx={{ borderRadius: 4, maxWidth: 480 }}>
       <CardContent sx={{ m: '2rem', mb: '4rem' }}>
         <Typography display="inline" color={Colors.blue800} fontSize={36}>
           <b>Tudo certo</b>
