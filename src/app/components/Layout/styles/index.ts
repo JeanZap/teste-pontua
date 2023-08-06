@@ -1,6 +1,7 @@
 import MuiAppBar, { AppBarProps as MuiAppBarProps } from '@mui/material/AppBar';
 import MuiDrawer from '@mui/material/Drawer';
 import { CSSObject, styled, Theme } from '@mui/material/styles';
+import { Colors } from '../../../../utils/colors';
 
 const drawerWidth = 300;
 
@@ -52,7 +53,10 @@ export const AppBar = styled(MuiAppBar, {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.enteringScreen
     })
-  })
+  }),
+  display: 'flex',
+  flexDirection: 'row',
+  outline: `1px solid ${Colors.gray100}`
 }));
 
 export const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' })(({ theme, open }) => ({

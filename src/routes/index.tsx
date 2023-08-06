@@ -4,6 +4,7 @@ import { Carregando } from '../app/components/Carregando';
 import { RotaAutenticada } from '../app/components/RotaAutenticada';
 import { EsquecimentoSenha, Home, Login, Perfil, SelecaoAgente } from './lazies';
 import { Paths } from './paths';
+import { NotFound } from '../app/pages/not-found';
 
 export const router = createBrowserRouter([
   {
@@ -25,7 +26,7 @@ export const router = createBrowserRouter([
       },
       {
         path: Paths.notFound,
-        element: <h1>Pagina mais rara que a primeira edicao do Hulk. Error 404</h1>
+        element: <NotFound />
       }
     ]
   }

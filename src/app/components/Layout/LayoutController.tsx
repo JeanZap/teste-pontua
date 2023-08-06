@@ -2,14 +2,14 @@ import { mdiAccountOutline, mdiViewDashboardOutline } from '@mdi/js';
 import { useState } from 'react';
 import { Paths } from '../../../routes/paths';
 
-export interface Botao {
+export interface IBotao {
   titulo: string;
   icone: string;
-  subBotoes?: Omit<Botao, 'icone'>[];
+  subBotoes?: Omit<IBotao, 'icone'>[];
   path?: string;
 }
 
-const botoes: Botao[] = [
+const botoes: IBotao[] = [
   { titulo: 'Home', path: Paths.home, icone: mdiViewDashboardOutline },
   //TODO: Vai para lugar nenhum
   { titulo: 'Perfil', path: Paths.perfilAgente(), icone: mdiAccountOutline }

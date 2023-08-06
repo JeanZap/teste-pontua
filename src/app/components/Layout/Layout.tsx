@@ -1,23 +1,28 @@
 import { mdiArrowDownLeft, mdiChevronLeft, mdiMenu } from '@mdi/js';
 import Icon from '@mdi/react';
+import { useMediaQuery, useTheme } from '@mui/material';
 import Box from '@mui/material/Box';
 import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
 import List from '@mui/material/List';
 import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
 import { PropsWithChildren } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { logo } from '../../../assets';
 import { Paths } from '../../../routes/paths';
 import { Colors } from '../../../utils/colors';
+import { AutocompleteBuscaPersonagem } from '../AutocompleteBuscaPersonagem';
 import { ItemLayout } from './ItemLayout';
 import { useLayoutController } from './LayoutController';
 import * as S from './styles';
 
 export function Layout({ children }: PropsWithChildren) {
+  const theme = useTheme();
   const { botoes, aberto, definirDrawerAberto } = useLayoutController();
+  const dimensoesDesktop = useMediaQuery(theme.breakpoints.up('md'));
   const navigate = useNavigate();
+
+  const abertoDesktop = aberto && dimensoesDesktop;
 
   const navegarPara = (path: string | undefined) =>
     function () {
@@ -32,29 +37,27 @@ export function Layout({ children }: PropsWithChildren) {
 
   return (
     <Box display="flex">
-      <S.AppBar position="fixed" open={aberto}>
+      <S.AppBar position="fixed" open={abertoDesktop}>
         <Toolbar sx={{ display: 'flex', justifyContent: 'space-between' }}>
           <IconButton
             onClick={definirDrawerAberto(true)}
             edge="start"
             sx={{
               marginRight: 5,
-              ...(aberto && { display: 'none' })
+              ...(abertoDesktop && { display: 'none' })
             }}>
             <Icon path={mdiMenu} color={Colors.blue800} size={1} />
           </IconButton>
-          <Typography variant="h6" noWrap>
-            {/* {titulo} */}
-            TODO: Titulo
-          </Typography>
         </Toolbar>
+
+        <AutocompleteBuscaPersonagem />
       </S.AppBar>
-      <S.Drawer variant="permanent" open={aberto}>
+      <S.Drawer variant="permanent" open={abertoDesktop}>
         <S.DrawerHeader>
           <Box pl={2}>
             <img src={logo} alt="logo" height="40" />
           </Box>
-          {aberto && (
+          {abertoDesktop && (
             <IconButton onClick={definirDrawerAberto(false)}>
               <Icon path={mdiChevronLeft} color={Colors.blue800} size={1} />
             </IconButton>
@@ -63,7 +66,7 @@ export function Layout({ children }: PropsWithChildren) {
         <Divider />
         <List>
           {botoes.map((botao) => (
-            <ItemLayout {...botao} key={botao.titulo} aberto={aberto} navegarPara={navegarPara} />
+            <ItemLayout {...botao} key={botao.titulo} aberto={abertoDesktop} navegarPara={navegarPara} />
           ))}
 
           <Divider />

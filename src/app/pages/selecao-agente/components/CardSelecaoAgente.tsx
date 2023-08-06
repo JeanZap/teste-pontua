@@ -1,33 +1,53 @@
 import {
+  Autocomplete,
   Avatar,
   Box,
   Button,
   Card,
   CardContent,
   CircularProgress,
-  FormControl,
-  InputLabel,
   MenuItem,
-  Select,
-  SelectChangeEvent,
+  TextField,
   Typography
 } from '@mui/material';
-import { useState } from 'react';
+import { ChangeEvent, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { CharactersListDto } from '../../../../models/CharactersListDto';
+import { Paths } from '../../../../routes/paths';
 import { Colors } from '../../../../utils/colors';
 
 interface Props {
   characteres: CharactersListDto | undefined;
   carregando: boolean;
-  selecionarAgente(idAgente: string): void;
+  buscarPersonagens(evento: ChangeEvent<HTMLInputElement>): Promise<void>;
 }
 
-export function CardSelecaoAgente({ characteres, carregando, selecionarAgente }: Props) {
+export function CardSelecaoAgente({ characteres, carregando, buscarPersonagens }: Props) {
+  const navigate = useNavigate();
+
   const [idAgente, setIdAgente] = useState<string>('');
 
-  const selecionarAgenteInput = (evento: SelectChangeEvent) => setIdAgente(evento.target.value);
+  const personagens =
+    characteres?.map((personagem) => ({
+      thumb: personagem.thumbnail.path + '.' + personagem.thumbnail.extension,
+      nome: personagem.name,
+      id: personagem.id
+    })) ?? [];
 
-  const entrar = () => selecionarAgente(idAgente);
+  function selecionarAgente(
+    evento: React.SyntheticEvent<Element, Event>,
+    agente: {
+      thumb: string;
+      nome: string;
+      id: number;
+    } | null
+  ) {
+    if (agente) {
+      setIdAgente(String(agente.id));
+    }
+  }
+
+  const entrar = () => navigate(Paths.perfilAgente(idAgente));
 
   return (
     <Card sx={{ borderRadius: 4, maxWidth: 480 }}>
@@ -43,24 +63,39 @@ export function CardSelecaoAgente({ characteres, carregando, selecionarAgente }:
           Tenha a visão completa do seu agente.
         </Typography>
 
-        <FormControl>
-          <InputLabel id="label-select-agente">Selecione um agente</InputLabel>
-          <Select
-            labelId="label-select-agente"
-            label="Selecione um agente"
-            disabled={carregando}
-            fullWidth
-            onChange={selecionarAgenteInput}>
-            {characteres?.map(({ id, thumbnail: { path, extension }, name }) => (
-              <MenuItem value={id}>
-                <Box display="flex" alignItems="center">
-                  <Avatar alt={`${path}.${extension}`} src={`${path}.${extension}`} sx={{ mr: 1 }} />
-                  <em>{name}</em>
-                </Box>
-              </MenuItem>
-            ))}
-          </Select>
-        </FormControl>
+        <Autocomplete
+          options={personagens}
+          sx={{ color: Colors.blue200 }}
+          disablePortal
+          getOptionLabel={(option) => option.nome}
+          noOptionsText="Sem opções"
+          loadingText="Carregando"
+          color="primary"
+          fullWidth
+          loading={carregando}
+          renderOption={(props, option) => (
+            <MenuItem {...props} value={option.id} key={option.id}>
+              <Box display="flex" alignItems="center">
+                <Avatar alt={option.nome} src={option.thumb} sx={{ mr: 1 }} />
+                <em> {option.nome}</em>
+              </Box>
+            </MenuItem>
+          )}
+          renderInput={(params) => (
+            <TextField
+              {...params}
+              InputProps={{
+                ...params.InputProps,
+                disableUnderline: true
+              }}
+              variant="outlined"
+              placeholder="Busque um agente"
+              fullWidth
+              onChange={buscarPersonagens}
+            />
+          )}
+          onChange={selecionarAgente}
+        />
 
         <Button
           size="large"

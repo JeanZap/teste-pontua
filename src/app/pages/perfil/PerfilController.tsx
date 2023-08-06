@@ -1,15 +1,15 @@
-import { Character } from '../../../models/CharactersListDto';
+import { useParams } from 'react-router-dom';
 import { useMarvelService } from '../../../services/MarvelService';
 import { useObterDadosIniciais } from '../../../utils/hooks/obterDadosIniciais';
 
 export function usePerfilController() {
   const marvelService = useMarvelService();
+  const { id } = useParams<{ id: string }>();
 
-  const { dado, carregando } = useObterDadosIniciais(() => Promise.resolve({ results: [] as Character[], total: 1 })); // marvelService.buscarPersonagensPaginado(0));
+  const { dado, carregando } = useObterDadosIniciais(() => marvelService.buscarPersonagem(id)); // marvelService.buscarPersonagensPaginado(0));
 
-  const characters = dado?.results;
-  const total = dado?.total;
+  const characters = dado;
 
-  return { characters, total, carregando };
+  return { personagem: characters, carregando };
 }
 

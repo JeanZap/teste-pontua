@@ -18,7 +18,7 @@ function TabPanel(props: TabPanelProps) {
       id={`simple-tabpanel-${index}`}
       aria-labelledby={`simple-tab-${index}`}
       {...other}>
-      {value === index && <Box sx={{ p: 3 }}>{children}</Box>}
+      {value === index && <Box sx={{ mt: 4 }}>{children}</Box>}
     </div>
   );
 }
@@ -53,7 +53,7 @@ export function Tabs<T extends string>({ tabs }: Props<T>) {
       <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
         <TabsMuiComponent value={value} onChange={handleChange} aria-label="basic tabs example">
           {labels.map((label) => (
-            <MuiTab label={label} key={label} {...a11yProps(label)} />
+            <MuiTab {...a11yProps(label)} label={label} key={label} sx={{ textTransform: 'none' }} />
           ))}
         </TabsMuiComponent>
       </Box>

@@ -8,7 +8,7 @@ import ListItemText from '@mui/material/ListItemText';
 import { matchRoutes, useLocation } from 'react-router-dom';
 import { Paths } from '../../../routes/paths';
 import { Colors } from '../../../utils/colors';
-import { Botao as IBotao } from './LayoutController';
+import { IBotao } from './LayoutController';
 
 interface Props extends IBotao {
   margemAdicional?: number;
@@ -21,9 +21,10 @@ const routes = [{ path: Paths.home }, { path: Paths.perfilAgente() }];
 
 export function ItemLayout({ titulo, icone, path, subBotoes, margemAdicional, rotate, aberto, navegarPara }: Props) {
   const location = useLocation();
+
   const matchRota = matchRoutes(routes, location.pathname);
   const matchBotao = matchRoutes(routes, path ?? '');
-  const selecionado = matchRota?.some((rota) => matchBotao?.some((botao) => rota.pathname === botao.pathname));
+  const selecionado = matchRota?.some((rota) => matchBotao?.some((botao) => rota.route.path === botao.route.path));
   const color = selecionado ? Colors.orange500 : undefined;
 
   return (

@@ -3,11 +3,11 @@ import { useSelecaoAgenteController } from './SelecaoAgenteController';
 import { CardSelecaoAgente } from './components/CardSelecaoAgente';
 
 export function SelecaoAgente() {
-  const { characteres, carregando, selecionarAgente } = useSelecaoAgenteController();
+  const { characteres, carregando, buscarPersonagens } = useSelecaoAgenteController();
 
   return (
     <BackgroundDMZ>
-      <CardSelecaoAgente characteres={characteres} carregando={carregando} selecionarAgente={selecionarAgente} />
+      <CardSelecaoAgente characteres={characteres} carregando={carregando} buscarPersonagens={buscarPersonagens} />
     </BackgroundDMZ>
   );
 }

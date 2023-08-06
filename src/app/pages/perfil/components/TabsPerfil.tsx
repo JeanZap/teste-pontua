@@ -1,30 +1,38 @@
+import { Character } from '../../../../models/CharactersListDto';
 import { Tab, Tabs } from '../../../components/Tabs';
+import { Authors } from './Authors';
+import { Powers } from './Powers';
+import { Species } from './Species';
+import { Teams } from './Teams';
+import { VisaoGeral } from './VisaoGeral';
 
 type LabelsType = 'Visão Geral' | 'Teams' | 'Powers' | 'Species' | 'Authors';
 
-interface Props {}
+interface Props {
+  personagem?: Character;
+}
 
-export function TabsPerfil({}: Props) {
+export function TabsPerfil({ personagem }: Props) {
   const tabs: Tab<LabelsType>[] = [
     {
       label: 'Visão Geral',
-      component: <h1>ASDF</h1>
+      component: <VisaoGeral personagem={personagem} />
     },
     {
       label: 'Teams',
-      component: <h1>ASDF</h1>
+      component: <Teams />
     },
     {
       label: 'Powers',
-      component: <h1>ASDF</h1>
+      component: <Powers />
     },
     {
       label: 'Species',
-      component: <h1>ASDF</h1>
+      component: <Species />
     },
     {
       label: 'Authors',
-      component: <h1>ASDF</h1>
+      component: <Authors personagem={personagem} />
     }
   ];
 

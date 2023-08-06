@@ -23,19 +23,19 @@ export function Home() {
   return (
     <Container sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 4 }}>
       <Grid spacing={2} container>
-        {characters.map((character, index) => {
+        {characters.map((personagem, index) => {
           const ultimos = index === 9 || index === 8;
           const lg = ultimos ? 6 : 3;
 
           return (
-            <Grid key={character.name} sm={12} md={6} lg={lg} item>
+            <Grid key={personagem.name} sm={12} md={6} lg={lg} item>
               <Card sx={{ backgroundColor: Colors.gray100, border: 'none', outline: 'none' }}>
                 <CardActionArea
                   sx={{ display: 'flex', justifyContent: 'start', height: 150, p: '14px 10px 14px 10px' }}
-                  onClick={irPerfil(character.id)}>
+                  onClick={irPerfil(personagem.id)}>
                   <CardMedia
                     component="img"
-                    image={character.thumbnail.path + '.' + character.thumbnail.extension}
+                    image={personagem.thumbnail.path + '.' + personagem.thumbnail.extension}
                     sx={{ height: 119, width: 83, borderRadius: 2 }}
                   />
                   <CardContent
@@ -47,10 +47,10 @@ export function Home() {
                       justifyContent: 'start'
                     }}>
                     <Typography fontSize={16} fontWeight={700}>
-                      {character.name}
+                      {personagem.name}
                     </Typography>
                     <Typography fontSize={12} mt={1}>
-                      {character.description}
+                      {personagem.description}
                     </Typography>
                   </CardContent>
                 </CardActionArea>

@@ -59,7 +59,8 @@ export function Paginacao({ total, buscarPagina }: Props) {
                 fontSize: 14,
                 fontWeight: 400,
                 border: '1px solid ' + Colors.gray100,
-                borderRadius: '0 .5rem .5rem 0'
+                borderRadius: '0 .5rem .5rem 0',
+                textTransform: 'none'
               }}
               disableElevation
               onClick={item.onClick}>
@@ -78,7 +79,8 @@ export function Paginacao({ total, buscarPagina }: Props) {
               fontSize: 14,
               fontWeight: 400,
               border: '1px solid ' + Colors.gray100,
-              borderRadius: '.5rem 0 0 .5rem'
+              borderRadius: '.5rem 0 0 .5rem',
+              textTransform: 'none'
             }}
             disableElevation
             onClick={item.onClick}>
