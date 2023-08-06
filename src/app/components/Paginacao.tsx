@@ -54,13 +54,15 @@ export function Paginacao({ total, buscarPagina }: Props) {
               variant="outlined"
               color="inherit"
               sx={{
+                height: 36,
                 backgroundColor: 'transparent',
                 color: Colors.blue600,
                 fontSize: 14,
                 fontWeight: 400,
                 border: '1px solid ' + Colors.gray100,
                 borderRadius: '0 .5rem .5rem 0',
-                textTransform: 'none'
+                textTransform: 'none',
+                gap: 1
               }}
               disableElevation
               onClick={item.onClick}>
@@ -74,13 +76,15 @@ export function Paginacao({ total, buscarPagina }: Props) {
             variant="outlined"
             color="inherit"
             sx={{
+              height: 36,
               backgroundColor: 'transparent',
               color: Colors.blue600,
               fontSize: 14,
               fontWeight: 400,
               border: '1px solid ' + Colors.gray100,
               borderRadius: '.5rem 0 0 .5rem',
-              textTransform: 'none'
+              textTransform: 'none',
+              gap: 1
             }}
             disableElevation
             onClick={item.onClick}>

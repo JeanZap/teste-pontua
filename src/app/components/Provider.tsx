@@ -1,7 +1,7 @@
 import { createTheme, ThemeProvider } from '@mui/material';
+import { SnackbarProvider } from 'notistack';
 import { PropsWithChildren } from 'react';
 import { Colors } from '../../utils/colors';
-import { SnackbarProvider } from 'notistack';
 
 const theme = createTheme({
   components: {
@@ -57,10 +57,24 @@ const theme = createTheme({
         colorDefault: { backgroundColor: Colors.white }
       },
       defaultProps: { elevation: 0, color: 'default' }
+    },
+    MuiInputBase: {
+      styleOverrides: {
+        root: {
+          color: Colors.gray900,
+          fontSize: 16,
+          input: {
+            '&::placeholder': {
+              color: Colors.blue200,
+              fontSize: 16
+            }
+          }
+        }
+      }
     }
   },
   typography: {
-    allVariants: { color: Colors.blue800 }
+    allVariants: { color: Colors.blue800, fontFamily: 'Raleway, Arial', letterSpacing: '.01rem', lineHeight: 1 }
   },
   shape: { borderRadius: 8 },
   palette: {

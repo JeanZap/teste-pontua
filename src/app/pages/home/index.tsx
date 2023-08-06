@@ -1,10 +1,10 @@
-import { Card, CardActionArea, CardContent, CardMedia, Container, Grid, Typography } from '@mui/material';
+import { Box, Card, CardActionArea, CardContent, CardMedia, Container, Divider, Grid, Typography } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
+import { Paths } from '../../../routes/paths';
 import { Colors } from '../../../utils/colors';
 import { Carregando } from '../../components/Carregando';
 import { Paginacao } from '../../components/Paginacao';
 import { useHomeController } from './HomeController';
-import { Paths } from '../../../routes/paths';
 
 export function Home() {
   const navigate = useNavigate();
@@ -50,7 +50,9 @@ export function Home() {
                       {personagem.name}
                     </Typography>
                     <Typography fontSize={12} mt={1}>
-                      {personagem.description}
+                      {personagem.description && personagem.description !== ''
+                        ? personagem.description
+                        : 'Nenhuma descrição fornecida.'}
                     </Typography>
                   </CardContent>
                 </CardActionArea>
@@ -59,6 +61,9 @@ export function Home() {
           );
         })}
       </Grid>
+
+      <Divider sx={{ width: '100%' }} />
+
       <Paginacao total={total} buscarPagina={obterPaginado} />
     </Container>
   );

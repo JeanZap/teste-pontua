@@ -20,10 +20,10 @@ export function CardEmail({ carregando, erro, solicitarTrocaSenha }: Props) {
 
   return (
     <CardDmz>
-      <Typography display="inline" color={Colors.blue800} fontSize={36}>
+      <Typography display="inline" fontWeight={700} color={Colors.blue800} fontSize={36}>
         <b>Recuperar senha</b>
       </Typography>
-      <Typography display="inline" color={Colors.orange500} fontSize={36}>
+      <Typography display="inline" fontWeight={700} color={Colors.orange500} fontSize={36}>
         .
       </Typography>
 
@@ -35,7 +35,7 @@ export function CardEmail({ carregando, erro, solicitarTrocaSenha }: Props) {
       <TextField
         placeholder="Informe seu e-mail"
         fullWidth
-        sx={{ mt: '.5rem' }}
+        sx={{ mt: '.5rem', font: 'none' }}
         InputProps={{
           endAdornment: <Icon path={mdiAt} color={Colors.gray500} size={1} />
         }}
@@ -47,9 +47,11 @@ export function CardEmail({ carregando, erro, solicitarTrocaSenha }: Props) {
       <Button
         size="large"
         fullWidth
+        disabled={!email}
         sx={{
           bgcolor: Colors.blue800,
           mt: '1rem',
+          mb: 4,
           p: '1rem',
           textDecoration: 'none'
         }}

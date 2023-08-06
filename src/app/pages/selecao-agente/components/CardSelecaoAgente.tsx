@@ -77,7 +77,9 @@ export function CardSelecaoAgente({ characteres, carregando, buscarPersonagens }
             <MenuItem {...props} value={option.id} key={option.id}>
               <Box display="flex" alignItems="center">
                 <Avatar alt={option.nome} src={option.thumb} sx={{ mr: 1 }} />
-                <em> {option.nome}</em>
+                <Typography fontFamily="Inter" color={Colors.gray900}>
+                  {option.nome}
+                </Typography>
               </Box>
             </MenuItem>
           )}
@@ -98,8 +100,8 @@ export function CardSelecaoAgente({ characteres, carregando, buscarPersonagens }
         />
 
         <Button
-          size="large"
-          sx={{ alignSelf: 'end', bgcolor: Colors.blue800, mt: '1rem', p: '1rem', textDecoration: 'none' }}
+          size="medium"
+          sx={{ alignSelf: 'end', bgcolor: Colors.blue800, mt: '1rem', p: 2, textDecoration: 'none' }}
           disabled={carregando}
           onClick={entrar}>
           <Typography

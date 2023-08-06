@@ -38,21 +38,27 @@ export function CardUsuarioSenha({ erro, carregando, login }: Props) {
 
   return (
     <CardDmz>
-      <Typography display="inline" color={Colors.blue800} fontSize={36}>
+      <Typography display="inline" color={Colors.blue800} fontWeight={700} fontSize={36}>
         <b>Bem-vindo</b>
       </Typography>
-      <Typography display="inline" color={Colors.orange500} fontSize={36}>
+      <Typography display="inline" color={Colors.orange500} fontWeight={700} fontSize={36}>
         .
       </Typography>
+
       <Typography mt="0.75rem" color={Colors.gray500} fontSize={16}>
         informe as suas credenciais de acesso ao portal
       </Typography>
+
       <TextField
         placeholder="Informe seu e-mail"
         fullWidth
         sx={{ mt: '.5rem' }}
         InputProps={{
-          endAdornment: <IconButton disabled><Icon path={mdiAt} color={Colors.gray500} size={1} /></IconButton>
+          endAdornment: (
+            <IconButton disabled>
+              <Icon path={mdiAt} color={Colors.gray500} size={1} />
+            </IconButton>
+          )
         }}
         onChange={definirUsuario}
       />
@@ -88,22 +94,22 @@ export function CardUsuarioSenha({ erro, carregando, login }: Props) {
         </Typography>
         {carregando ? <CircularProgress /> : <Icon path={mdiLoginVariant} color={Colors.white} size={1} />}
       </Button>
-      <Box ml="auto">
-        <Link to={Paths.esqueciSenha}>
+      <Link to={Paths.esqueciSenha}>
+        <Box ml="auto" mt="1rem" display="flex" justifyContent="end" alignItems="center">
+          <Icon path={mdiShieldKeyOutline} color={Colors.orange500} size={1} />
+
           <Typography
-            mt="1rem"
             color={Colors.orange500}
             sx={{
               textDecoration: 'none',
               whiteSpace: 'nowrap',
               textAlign: 'end',
-              alignItems: 'center'
+              textIndent: 4
             }}>
-            <Icon path={mdiShieldKeyOutline} color={Colors.orange500} size={1} />
             Esqueceu a senha?
           </Typography>
-        </Link>
-      </Box>
+        </Box>
+      </Link>
     </CardDmz>
   );
 }

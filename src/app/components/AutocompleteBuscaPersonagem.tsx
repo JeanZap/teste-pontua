@@ -1,6 +1,6 @@
 import { mdiMagnify } from '@mdi/js';
 import Icon from '@mdi/react';
-import { Autocomplete, Avatar, Box, InputAdornment, MenuItem, TextField } from '@mui/material';
+import { Autocomplete, Avatar, Box, InputAdornment, MenuItem, TextField, Typography } from '@mui/material';
 import { useSnackbar } from 'notistack';
 import { ChangeEvent, useRef, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
@@ -54,7 +54,9 @@ export function AutocompleteBuscaPersonagem() {
   if (rotaHome)
     return (
       <Autocomplete
+        popupIcon={null}
         options={personagens}
+        color="error"
         sx={{ width: 300, mt: 2, color: Colors.blue200 }}
         disablePortal
         getOptionLabel={(option) => option.nome}
@@ -65,7 +67,9 @@ export function AutocompleteBuscaPersonagem() {
           <MenuItem {...props} value={option.id} key={option.id}>
             <Box display="flex" alignItems="center">
               <Avatar alt={option.nome} src={option.thumb} sx={{ mr: 1 }} />
-              <em> {option.nome}</em>
+              <Typography fontFamily="Inter" color={Colors.gray900}>
+                {option.nome}
+              </Typography>
             </Box>
           </MenuItem>
         )}

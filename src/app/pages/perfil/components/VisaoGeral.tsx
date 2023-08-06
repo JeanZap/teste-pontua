@@ -1,4 +1,4 @@
-import { Avatar, Box, CardContent, Paper, Typography } from '@mui/material';
+import { Avatar, Box, CardContent, Paper, Typography, useMediaQuery, useTheme } from '@mui/material';
 import { Character } from '../../../../models/CharactersListDto';
 import { Colors } from '../../../../utils/colors';
 
@@ -7,6 +7,11 @@ interface Props {
 }
 
 export function VisaoGeral({ personagem }: Props) {
+  const theme = useTheme();
+  const dimensoesDesktop = useMediaQuery(theme.breakpoints.up('md'));
+
+  const flexDirection = dimensoesDesktop ? 'row' : 'column';
+
   if (!personagem) return null;
 
   return (
@@ -16,7 +21,7 @@ export function VisaoGeral({ personagem }: Props) {
         boxShadow: '4px 4px 4px 4px ' + Colors.gray100,
         p: 4
       }}>
-      <CardContent sx={{ display: 'flex' }}>
+      <CardContent sx={{ display: 'flex', flexDirection }}>
         <Avatar
           alt={personagem.name}
           src={personagem.thumbnail.path + '.' + personagem.thumbnail.extension}

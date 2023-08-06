@@ -1,6 +1,7 @@
 import { Tab as MuiTab, Tabs as TabsMuiComponent } from '@mui/material';
 import Box from '@mui/material/Box';
 import * as React from 'react';
+import { Colors } from '../../utils/colors';
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -50,10 +51,19 @@ export function Tabs<T extends string>({ tabs }: Props<T>) {
 
   return (
     <Box sx={{ width: '100%' }}>
-      <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-        <TabsMuiComponent value={value} onChange={handleChange} aria-label="basic tabs example">
+      <Box sx={{ borderBottom: 1, borderColor: 'divider', '& .MuiTabs-scroller': { overflowX: 'scroll' } }}>
+        <TabsMuiComponent
+          value={value}
+          variant="scrollable"
+          scrollButtons="auto"
+          onChange={handleChange}>
           {labels.map((label) => (
-            <MuiTab {...a11yProps(label)} label={label} key={label} sx={{ textTransform: 'none' }} />
+            <MuiTab
+              {...a11yProps(label)}
+              label={label}
+              key={label}
+              sx={{ textTransform: 'none', color: Colors.gray500 }}
+            />
           ))}
         </TabsMuiComponent>
       </Box>

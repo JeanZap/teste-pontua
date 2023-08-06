@@ -43,5 +43,19 @@ ul {
 
 li {
   line-height: 1.5rem;
+  font-weight: 600;
+  color: #667085;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-internal-autofill-selected,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px white inset !important;
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  color: #293d71;
 }
 
