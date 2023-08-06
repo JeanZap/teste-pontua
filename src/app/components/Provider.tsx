@@ -60,7 +60,6 @@ const theme = createTheme({
     }
   },
   typography: {
-    fontFamily: 'Epilogue',
     allVariants: { color: Colors.blue800 }
   },
   shape: { borderRadius: 8 },

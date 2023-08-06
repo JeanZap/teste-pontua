@@ -52,7 +52,7 @@ export function CardUsuarioSenha({ erro, carregando, login }: Props) {
         fullWidth
         sx={{ mt: '.5rem' }}
         InputProps={{
-          endAdornment: <Icon path={mdiAt} color={Colors.gray500} size={1} />
+          endAdornment: <IconButton disabled><Icon path={mdiAt} color={Colors.gray500} size={1} /></IconButton>
         }}
         onChange={definirUsuario}
       />

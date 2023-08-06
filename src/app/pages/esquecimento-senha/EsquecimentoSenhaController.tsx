@@ -20,7 +20,6 @@ export function EsquecimentoSenhaController() {
     setErro('');
 
     try {
-      debugger
       await EmailValidation.validate(email);
 
       await auth.solicitarTrocaSenha(email);
