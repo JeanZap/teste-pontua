@@ -1,0 +1,25 @@
+Assunto: Entrega do código para o processo seletivo de Desenvolvedor Front End Pleno
+
+Prezados,
+
+Espero que esta mensagem o encontre bem. Estou escrevendo para fornecer a entrega do código solicitado como parte do processo seletivo para a vaga de Desenvolvedor Front End Pleno.
+
+Antes de mais nada, gostaria de agradecer a oportunidade de participar deste processo seletivo e de poder demonstrar minhas habilidades e conhecimentos na área. Durante o desenvolvimento do projeto, encontrei alguns desafios em relação à API fornecida para obtenção das informações do personagem.
+
+URL do Git: https://github.com/JeanZap/teste-pontua
+
+Além disso, estou enviando um arquivo ZIP em anexo com o código-fonte do projeto para sua conveniência. Caso prefira baixar diretamente a partir deste e-mail, basta clicar no link abaixo:
+
+Infelizmente, notei que a API não fornece todas as informações necessárias para exibir os detalhes completos do personagem. Em especial, identifiquei que as informações referentes às "Teams" (Times), "Especies" e "Powers" (Poderes) não são disponibilizadas pela API, o que dificulta a exibição completa dos dados dos personagens em nossa aplicação.
+
+Devido a essa limitação da API, tive que recorrer ao uso de informações mockadas (fictícias) para preencher os campos faltantes e garantir a completude da experiência do usuário ao navegar pelas informações dos personagens. Entendo que a utilização de informações mockadas não é ideal, mas foi uma solução temporária para contornar essa questão durante o desenvolvimento do projeto.
+
+Estou ciente da importância de garantir a integridade e precisão dos dados em um projeto real e, caso seja selecionado(a) para a posição, dedicarei esforços para encontrar uma solução adequada para o problema mencionado, seja por meio de outras APIs ou buscando alternativas para obter as informações faltantes.
+
+Por favor, encontre anexado a este e-mail o arquivo contendo o código-fonte do projeto desenvolvido. Sinta-se à vontade para examinar o código e qualquer feedback é mais que bem-vindo.
+
+Mais uma vez, agradeço pela oportunidade e pela consideração do meu trabalho neste processo seletivo. Estou à disposição para fornecer quaisquer esclarecimentos adicionais ou informações necessárias.
+
+Atenciosamente,
+Jean de Azevedo Pereira
+Desenvolvedor Front End Pleno

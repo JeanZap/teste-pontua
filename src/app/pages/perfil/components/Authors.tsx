@@ -31,7 +31,7 @@ export function Authors({ personagem }: Props) {
       <li>Stan Lee</li>
       <li>Steve Ditko</li>
       {authors.map((nome) => (
-        <li>{nome}</li>
+        <li key={nome}>{nome}</li>
       ))}
     </ul>
   );

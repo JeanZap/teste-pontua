@@ -71,6 +71,7 @@ export function CardSelecaoAgente({ characteres, carregando, buscarPersonagens }
           noOptionsText="Sem opções"
           loadingText="Carregando"
           color="primary"
+          disableClearable
           fullWidth
           loading={carregando}
           renderOption={(props, option) => (
@@ -86,12 +87,12 @@ export function CardSelecaoAgente({ characteres, carregando, buscarPersonagens }
           renderInput={(params) => (
             <TextField
               {...params}
+              placeholder="Busque um agente"
+              variant="outlined"
               InputProps={{
                 ...params.InputProps,
                 disableUnderline: true
               }}
-              variant="outlined"
-              placeholder="Busque um agente"
               fullWidth
               onChange={buscarPersonagens}
             />
