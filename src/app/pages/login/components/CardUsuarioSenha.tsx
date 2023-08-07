@@ -37,7 +37,7 @@ export function CardUsuarioSenha({ erro, carregando, login }: Props) {
       <Typography display="inline" color={Colors.blue800} fontWeight={700} fontSize={36} letterSpacing={-2}>
         <b>Bem-vindo</b>
       </Typography>
-      <Typography display="inline" color={Colors.orange500} fontWeight={700} fontSize={36}>
+      <Typography display="inline" fontFamily="emoji" color={Colors.orange500} fontWeight={700} fontSize={36}>
         .
       </Typography>
 

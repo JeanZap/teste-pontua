@@ -52,9 +52,9 @@ export function CardSelecaoAgente({ characteres, carregando, buscarPersonagens }
   return (
     <Card sx={{ borderRadius: 4, maxWidth: 480 }}>
       <CardContent sx={{ m: '2rem', mb: '2rem', display: 'flex', flexDirection: 'column' }}>
-        <Typography display="inline" color={Colors.blue800} fontSize={36}>
+        <Typography display="inline" color={Colors.blue800} fontSize={36} letterSpacing={-2}>
           <b>Selecione o seu agente mais legal</b>
-          <Typography display="inline" color={Colors.orange500} fontSize={36}>
+          <Typography display="inline" fontFamily="emoji" color={Colors.orange500} fontSize={36}>
             <b>.</b>
           </Typography>
         </Typography>
