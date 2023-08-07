@@ -74,6 +74,7 @@ export const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 
     '& .MuiDrawer-paper': closedMixin(theme)
   }),
   height: '100vh',
+  borderRight: 0,
   boxShadow: '0 3px 10px rgb(0 0 0 / 0.2)'
 }));
 

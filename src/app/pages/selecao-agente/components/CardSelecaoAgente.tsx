@@ -112,7 +112,7 @@ export function CardSelecaoAgente({ characteres, carregando, buscarPersonagens }
               fontSize: 24,
               textDecoration: 'none',
               textTransform: 'none',
-              mr: '.5rem'
+              mr: '.5rem',
             }}>
             Entrar
           </Typography>

@@ -1,7 +1,7 @@
 import { Box, Grid, Toolbar, useMediaQuery, useTheme } from '@mui/material';
 import { PropsWithChildren } from 'react';
-import { Colors } from '../../utils/colors';
 import { building, logoWhite } from '../../assets';
+import { Colors } from '../../utils/colors';
 
 export function BackgroundDMZ({ children }: PropsWithChildren) {
   const theme = useTheme();
@@ -13,9 +13,9 @@ export function BackgroundDMZ({ children }: PropsWithChildren) {
         bgcolor: Colors.blue800,
         minHeight: '99vh',
         width: '100vw',
-        maxWidth: '100vw',
         display: 'flex',
-        flexDirection: 'column'
+        flexDirection: 'column',
+        overflow: 'hidden'
       }}>
       <Toolbar>
         <img src={logoWhite} alt={logoWhite} />

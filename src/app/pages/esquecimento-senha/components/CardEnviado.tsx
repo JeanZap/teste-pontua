@@ -16,7 +16,7 @@ export function CardEnviado({ irParaLogin }: Props) {
         <b>;)</b>
       </Typography>
 
-      <Typography mt="0.75rem" color={Colors.gray500} fontSize={16}>
+      <Typography mt="2rem" color={Colors.gray500} fontSize={16}>
         Foi enviado um e-mail para você com instruções de como redefinir a sua senha.
       </Typography>
 
@@ -25,7 +25,7 @@ export function CardEnviado({ irParaLogin }: Props) {
         fullWidth
         sx={{
           bgcolor: Colors.blue800,
-          mt: '1rem',
+          mt: '2rem',
           p: '1rem'
         }}
         onClick={irParaLogin}>
@@ -35,7 +35,7 @@ export function CardEnviado({ irParaLogin }: Props) {
             color: Colors.white,
             fontSize: 24,
             textTransform: 'none',
-            mr: '.5rem'
+            mr: '.5rem',
           }}>
           voltar para o login
         </Typography>
