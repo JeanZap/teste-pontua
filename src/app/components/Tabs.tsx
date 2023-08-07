@@ -52,17 +52,13 @@ export function Tabs<T extends string>({ tabs }: Props<T>) {
   return (
     <Box sx={{ width: '100%' }}>
       <Box sx={{ borderBottom: 1, borderColor: 'divider', '& .MuiTabs-scroller': { overflowX: 'scroll' } }}>
-        <TabsMuiComponent
-          value={value}
-          variant="scrollable"
-          scrollButtons="auto"
-          onChange={handleChange}>
+        <TabsMuiComponent value={value} variant="scrollable" scrollButtons="auto" onChange={handleChange}>
           {labels.map((label) => (
             <MuiTab
               {...a11yProps(label)}
               label={label}
               key={label}
-              sx={{ textTransform: 'none', color: Colors.gray500 }}
+              sx={{ textTransform: 'none', color: Colors.gray500, fontWeight: 600 }}
             />
           ))}
         </TabsMuiComponent>

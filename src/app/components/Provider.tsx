@@ -37,6 +37,14 @@ const theme = createTheme({
     MuiButton: {
       variants: [
         {
+          props: { disabled: true },
+          style: {
+            ':disabled': {
+              backgroundColor: Colors.gray1000
+            }
+          }
+        },
+        {
           props: { variant: 'contained', color: 'primary' },
           style: {
             backgroundColor: Colors.blue800,
@@ -71,10 +79,29 @@ const theme = createTheme({
           }
         }
       }
+    },
+    MuiTextField: {
+      styleOverrides: {
+        root: {
+          svg: {
+            color: Colors.gray1000
+          },
+          '& .Mui-focused': {
+            svg: {
+              color: Colors.blue800
+            }
+          }
+        }
+      }
     }
   },
   typography: {
-    allVariants: { color: Colors.blue800, fontFamily: 'Raleway, Arial', letterSpacing: '.01rem', lineHeight: 1 }
+    allVariants: {
+      color: Colors.blue800,
+      fontFamily: 'Arial, Helvetica, sans-serif',
+      letterSpacing: '.01rem',
+      lineHeight: 1
+    }
   },
   shape: { borderRadius: 8 },
   palette: {

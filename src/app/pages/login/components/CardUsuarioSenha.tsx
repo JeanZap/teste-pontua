@@ -25,11 +25,7 @@ export function CardUsuarioSenha({ erro, carregando, login }: Props) {
   const definirSenha = (evento: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
     setRequisicao((requisicao) => ({ ...requisicao, senha: evento.target.value }));
 
-  const iconeSenha = exibirSenha ? (
-    <Icon path={mdiEyeOutline} color={Colors.gray500} size={1} />
-  ) : (
-    <Icon path={mdiEyeOffOutline} color={Colors.gray500} size={1} />
-  );
+  const iconeSenha = exibirSenha ? <Icon path={mdiEyeOutline} size={1} /> : <Icon path={mdiEyeOffOutline} size={1} />;
   const typeSenha = exibirSenha ? 'text' : 'password';
 
   const requerirLogin = () => login(requisicao);
@@ -38,7 +34,7 @@ export function CardUsuarioSenha({ erro, carregando, login }: Props) {
 
   return (
     <CardDmz>
-      <Typography display="inline" color={Colors.blue800} fontWeight={700} fontSize={36}>
+      <Typography display="inline" color={Colors.blue800} fontWeight={700} fontSize={36} letterSpacing={-2}>
         <b>Bem-vindo</b>
       </Typography>
       <Typography display="inline" color={Colors.orange500} fontWeight={700} fontSize={36}>
@@ -50,19 +46,23 @@ export function CardUsuarioSenha({ erro, carregando, login }: Props) {
       </Typography>
 
       <TextField
+        label="E-mail"
         placeholder="Informe seu e-mail"
         fullWidth
-        sx={{ mt: '.5rem' }}
+        sx={{
+          mt: '1rem'
+        }}
         InputProps={{
           endAdornment: (
             <IconButton disabled>
-              <Icon path={mdiAt} color={Colors.gray500} size={1} />
+              <Icon path={mdiAt} size={1} />
             </IconButton>
           )
         }}
         onChange={definirUsuario}
       />
       <TextField
+        label="Senha"
         placeholder="Informe sua senha"
         type={typeSenha}
         fullWidth
@@ -88,7 +88,8 @@ export function CardUsuarioSenha({ erro, carregando, login }: Props) {
             fontSize: 24,
             textDecoration: 'none',
             textTransform: 'none',
-            mr: '.5rem'
+            mr: '.5rem',
+            fontWeight: 700
           }}>
           entrar
         </Typography>

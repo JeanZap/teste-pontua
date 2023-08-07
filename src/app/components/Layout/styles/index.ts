@@ -60,6 +60,7 @@ export const AppBar = styled(MuiAppBar, {
 }));
 
 export const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' })(({ theme, open }) => ({
+  zIndex: theme.zIndex.drawer + 2,
   width: drawerWidth,
   flexShrink: 0,
   whiteSpace: 'nowrap',
@@ -71,6 +72,8 @@ export const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 
   ...(!open && {
     ...closedMixin(theme),
     '& .MuiDrawer-paper': closedMixin(theme)
-  })
+  }),
+  height: '100vh',
+  boxShadow: '0 3px 10px rgb(0 0 0 / 0.2)'
 }));
 

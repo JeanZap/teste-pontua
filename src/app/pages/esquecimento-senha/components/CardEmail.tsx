@@ -27,7 +27,7 @@ export function CardEmail({ carregando, erro, solicitarTrocaSenha }: Props) {
         .
       </Typography>
 
-      <Typography mt="0.75rem" color={Colors.gray500} fontSize={16}>
+      <Typography mt="2rem" color={Colors.gray500} fontSize={16}>
         Informe o e-mail do seu cadastro. Nós estaremos realizando o envio de um link com as instruções para você
         redefinir a sua senha.
       </Typography>
@@ -35,9 +35,9 @@ export function CardEmail({ carregando, erro, solicitarTrocaSenha }: Props) {
       <TextField
         placeholder="Informe seu e-mail"
         fullWidth
-        sx={{ mt: '.5rem', font: 'none' }}
+        sx={{ mt: '1rem', font: 'none' }}
         InputProps={{
-          endAdornment: <Icon path={mdiAt} color={Colors.gray500} size={1} />
+          endAdornment: <Icon path={mdiAt} size={1} />
         }}
         onChange={definirEmail}
       />

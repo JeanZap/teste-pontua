@@ -10,5 +10,6 @@ export const Colors = {
   grayBackground: '#f5f6f8',
   gray100: '#eaecf0',
   gray500: '#777777',
+  gray1000: '#c3c3c3',
   gray900: '#101828'
 } as const;
