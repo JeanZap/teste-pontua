@@ -20,7 +20,7 @@ export function CardEmail({ carregando, erro, solicitarTrocaSenha }: Props) {
 
   return (
     <CardDmz>
-      <Typography display="inline" fontWeight={700} color={Colors.blue800} fontSize={36} letterSpacing={-2}>
+      <Typography display="inline" fontWeight={700} color={Colors.blue800} fontSize={36} letterSpacing={-3}>
         <b>Recuperar senha</b>
       </Typography>
       <Typography display="inline" fontFamily="emoji" fontWeight={700} color={Colors.orange500} fontSize={36}>

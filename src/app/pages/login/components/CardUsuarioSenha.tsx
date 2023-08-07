@@ -34,7 +34,7 @@ export function CardUsuarioSenha({ erro, carregando, login }: Props) {
 
   return (
     <CardDmz>
-      <Typography display="inline" color={Colors.blue800} fontWeight={700} fontSize={36} letterSpacing={-2}>
+      <Typography display="inline" color={Colors.blue800} fontWeight={700} fontSize={36} letterSpacing={-3}>
         <b>Bem-vindo</b>
       </Typography>
       <Typography display="inline" fontFamily="emoji" color={Colors.orange500} fontWeight={700} fontSize={36}>
