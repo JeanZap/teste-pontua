@@ -43,6 +43,7 @@ export function Layout({ children }: PropsWithChildren) {
             onClick={definirDrawerAberto(true)}
             edge="start"
             sx={{
+              ml: 6,
               marginRight: 5,
               ...(abertoDesktop && { display: 'none' })
             }}>
@@ -54,9 +55,11 @@ export function Layout({ children }: PropsWithChildren) {
       </S.AppBar>
       <S.Drawer variant="permanent" open={abertoDesktop}>
         <S.DrawerHeader>
-          <Box pl={2}>
-            <img src={logo} alt="logo" height="40" />
-          </Box>
+          {abertoDesktop && (
+            <Box pl={2}>
+              <img src={logo} alt="logo" height="40" />
+            </Box>
+          )}
           {abertoDesktop && (
             <IconButton onClick={definirDrawerAberto(false)}>
               <Icon path={mdiChevronLeft} color={Colors.blue800} size={1} />

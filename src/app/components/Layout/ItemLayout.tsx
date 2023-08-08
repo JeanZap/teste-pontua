@@ -19,7 +19,17 @@ interface Props extends IBotao {
 
 const routes = [{ path: Paths.home }, { path: Paths.perfilAgente() }];
 
-export function ItemLayout({ titulo, icone, path, subBotoes, margemAdicional, rotate, aberto, navegarPara }: Props) {
+export function ItemLayout({
+  titulo,
+  icone,
+  path,
+  subBotoes,
+  margemAdicional,
+  rotate,
+  aberto,
+  disabled,
+  navegarPara
+}: Props) {
   const location = useLocation();
 
   const matchRota = matchRoutes(routes, location.pathname);
@@ -36,7 +46,7 @@ export function ItemLayout({ titulo, icone, path, subBotoes, margemAdicional, ro
           px: 2.5,
           '& .MuiTypography-root': { color }
         }}
-        onClick={navegarPara(path)}>
+        onClick={disabled ? () => undefined : navegarPara(path)}>
         <ListItemIcon
           sx={{
             minWidth: 0,

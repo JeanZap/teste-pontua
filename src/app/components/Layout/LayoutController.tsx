@@ -7,12 +7,12 @@ export interface IBotao {
   icone: string;
   subBotoes?: Omit<IBotao, 'icone'>[];
   path?: string;
+  disabled?: boolean;
 }
 
 const botoes: IBotao[] = [
   { titulo: 'Home', path: Paths.home, icone: mdiViewDashboardOutline },
-  //TODO: Vai para lugar nenhum
-  { titulo: 'Perfil', path: Paths.perfilAgente(), icone: mdiAccountOutline }
+  { titulo: 'Perfil', path: Paths.perfilAgente(), icone: mdiAccountOutline, disabled: true }
 ];
 
 export function useLayoutController() {
